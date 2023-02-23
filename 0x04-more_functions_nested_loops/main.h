@@ -142,8 +142,4 @@ void print_triangle(int size);
  * @n: integer to print to char
  */
 void print_number(int n);
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
 #endif
