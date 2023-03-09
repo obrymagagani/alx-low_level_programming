@@ -1,23 +1,30 @@
-#include "main.h"
-
-int is_divisible(int num, int div);
-int is_prime_number(int n);
-
+#include <stdio.h>
 /**
- * is_divisible - Checks if a number is divisible.
- * @num: The number to be checked.
- * @div: The divisor.
+ * prime_finder - finds out if a number is prime recursively
  *
- * Return: If the number is divisible - 0.
- *         If the number is not divisible - 1.
+ * @x: number to determine if prime
+ * @y: number to check if divisor
+ *
+ * Return: 1 if prime, 0 otherwise
  */
-int is_divisible(int num, int div)
+int prime_finder(int x, int y)
 {
-	if (num % div == 0)
-		return (0);
-
-	if (div == num / 2)
+	if (x == y)
 		return (1);
-
-	return (is_divisible(num, div + 1));
+	if (!(x % y))
+		return (0);
+	return (prime_finder(x, y + 1));
+}
+/**
+ * is_prime_number - returns if a number is prime
+ *
+ * @n: number to determine primeness of
+ *
+ * Return: 1 if prime, 0 otherwise
+ */
+int is_prime_number(int n)
+{
+	if (n < 2)
+		return (0);
+	return (prime_finder(n, 2));
 }
